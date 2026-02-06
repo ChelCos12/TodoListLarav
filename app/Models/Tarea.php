@@ -6,23 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tarea extends Model
 {
-    // Nombre de la tabla
     protected $table = 'tareas';
+
+    protected $guarded = [];
     
     public $timestamps = false;
     
-    protected $fillable = [
-        'titulo',
-        'descripcion',
-        'categoria_id',
-        'completada'
-    ];
     
     protected $casts = [
         'completada' => 'boolean'
     ];
-    
-    // RELACIONES
 
 
     public function categoria()

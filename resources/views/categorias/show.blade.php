@@ -6,7 +6,6 @@
 <div class="pagina">
     <h2 class="pagina__titulo">Gestión de Categorías</h2>
     
-    <!-- Formulario para crear categoría -->
     <div class="formulario">
         <h3 class="formulario__titulo">Nueva Categoría</h3>
         

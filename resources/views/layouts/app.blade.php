@@ -224,7 +224,6 @@
             margin: 0;
         }
 
-        /* Botones */
         .boton {
             padding: 8px 16px;
             border: none;
@@ -256,7 +255,6 @@
             color: white;
         }
 
-        /* Mensaje vacío */
         .mensaje-vacio {
             text-align: center;
             color: #7f8c8d;
@@ -264,7 +262,6 @@
             font-size: 1.1em;
         }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -312,7 +309,6 @@
             color: #333;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .nav {
                 flex-direction: column;

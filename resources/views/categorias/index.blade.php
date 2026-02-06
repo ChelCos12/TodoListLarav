@@ -39,7 +39,6 @@
         </form>
     </div>
 
-    <!-- Lista de categorías -->
     <div style="display: flex; flex-direction: column; gap: 20px;">
         @if($categorias->count() > 0)
             @foreach($categorias as $categoria)

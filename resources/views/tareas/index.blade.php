@@ -5,7 +5,6 @@
 @section('content')
 <div class="pagina">
     
-    <!-- Formulario para crear tarea -->
     <div class="formulario">
         <h3 class="formulario__titulo">Nueva Tarea</h3>
         
