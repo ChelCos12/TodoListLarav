@@ -10,11 +10,6 @@ class Categoria extends Model
 
     protected $guarded = [];
 
-    
-    public $timestamps = false;
-    
-    
-
     public function tareas()
     {
         return $this->hasMany(Tarea::class, 'categoria_id');

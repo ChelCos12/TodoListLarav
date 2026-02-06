@@ -22,6 +22,7 @@ return new class extends Migration
                   ->onDelete('cascade'); // Si se elimina la categoría, se eliminan sus tareas
             
             $table->boolean('completada')->default(false);
+            $table->timestamps();
         });
     }
 

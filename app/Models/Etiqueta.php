@@ -10,10 +10,6 @@ class Etiqueta extends Model
 
     protected $guarded = [];
     
-    public $timestamps = false;
-    
-
-    
     public function tareas()
     {
         return $this->belongsToMany(Tarea::class, 'etiqueta_tarea', 'etiqueta_id', 'tarea_id');

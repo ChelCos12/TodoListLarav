@@ -9,10 +9,6 @@ class Tarea extends Model
     protected $table = 'tareas';
 
     protected $guarded = [];
-    
-    public $timestamps = false;
-    
-    
     protected $casts = [
         'completada' => 'boolean'
     ];

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('color', 7)->default('#2ecc71'); // Formato: #RRGGBB
+            $table->timestamps();
         });
     }
 

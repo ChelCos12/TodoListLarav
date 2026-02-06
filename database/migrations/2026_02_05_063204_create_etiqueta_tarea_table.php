@@ -26,6 +26,7 @@ return new class extends Migration
             
             // Evitar duplicados: una tarea no puede tener la misma etiqueta dos veces
             $table->unique(['tarea_id', 'etiqueta_id']);
+            $table->timestamps();
         });
     }
 
