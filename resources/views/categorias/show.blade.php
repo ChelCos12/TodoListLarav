@@ -40,9 +40,7 @@
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
-        @if($categorias->count() > 0)
-            @foreach($categorias as $categoria)
-                <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid {{ $categoria->color }}; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
+        <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid {{ $categoria->color }}; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
                     
                     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
                         <div style="width: 40px; height: 40px; background-color: {{ $categoria->color }}; border-radius: 8px;"></div>
@@ -62,10 +60,6 @@
                         </form>
                     </div>
                 </div>
-            @endforeach
-        @else
-            <div class="mensaje-vacio">No hay categorías. ¡Crea tu primera categoría!</div>
-        @endif
     </div>
 </div>
 @endsection

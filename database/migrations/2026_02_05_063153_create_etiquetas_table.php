@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('etiquetas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('color', 7)->default('#2ecc71'); // Formato: #RRGGBB
+            $table->string('color', 7)->default('#2ecc71')->nullable(); // Formato: #RRGGBB
             $table->timestamps();
         });
     }

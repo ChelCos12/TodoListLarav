@@ -22,7 +22,7 @@ class TareaController extends Controller
     
     public function store(Request $request)
     {
-        // Validar los datos
+ 
         $request->validate([
             'titulo' => 'required|max:255',
             'descripcion' => 'nullable',
@@ -38,7 +38,6 @@ class TareaController extends Controller
             'completada' => false
         ]);
         
-        // Asociar las etiquetas si existen
         if ($request->has('etiquetas')) {
             $tarea->etiquetas()->attach($request->etiquetas);
         }

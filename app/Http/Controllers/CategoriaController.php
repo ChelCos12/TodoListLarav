@@ -9,6 +9,7 @@ class CategoriaController extends Controller
 {
     /**
      * Mostrar la lista de categorías
+     * phpdoc
      */
     public function index()
     {
@@ -18,6 +19,9 @@ class CategoriaController extends Controller
     
     /**
      * Guardar una nueva categoría
+     * @param nombre  nombre de la categoria
+     * @param color color debe venir en hexadecimal
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -28,10 +32,14 @@ class CategoriaController extends Controller
         ]);
         
         // Crear la categoría
-        Categoria::create([
-            'nombre' => $request->nombre,
-            'color' => $request->color
-        ]);
+        // Categoria::create([
+        //     'nombre' => $request->nombre,
+        //     'color' => $request->color
+        // ]);
+        $categoria = new Categoria();
+        $categoria->nombre = $request->nombre;
+        $categoria->color = $request->color;
+        $categoria->save();
         
         return redirect()->route('categorias.index')->with('success', 'Categoría creada exitosamente');
     }

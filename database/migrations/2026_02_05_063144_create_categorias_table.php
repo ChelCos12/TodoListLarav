@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('categorias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('color', 7)->default('#3498db'); // Formato: #RRGGBB
+            $table->string('color', 7)->default('#3498db')->nullable(); // Formato: #RRGGBB
             $table->timestamps();
         });
     }
