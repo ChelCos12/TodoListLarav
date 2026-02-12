@@ -10,12 +10,8 @@ class EtiquetaApiController extends Controller
 {
     public function index()
     {
-        $etiquetas = Etiqueta::all();
-        
-        return response()->json([
-            'success' => true,
-            'data' => $etiquetas
-        ], 200);
+        $etiquetas = Etiqueta::all()->paginate(10);
+        return response()->json($etiquetas);
     }
     
     public function store(Request $request)
@@ -31,7 +27,6 @@ class EtiquetaApiController extends Controller
         ]);
         
         return response()->json([
-            'success' => true,
             'message' => 'Etiqueta creada exitosamente',
             'data' => $etiqueta
         ], 201);
@@ -42,27 +37,18 @@ class EtiquetaApiController extends Controller
         
         if (!$etiqueta) {
             return response()->json([
-                'success' => false,
                 'message' => 'Etiqueta no encontrada'
             ], 404);
         }
         
         return response()->json([
-            'success' => true,
             'data' => $etiqueta
         ], 200);
     }
     
     public function update(Request $request, $id)
     {
-        $etiqueta = Etiqueta::find($id);
-        
-        if (!$etiqueta) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Etiqueta no encontrada'
-            ], 404);
-        }
+        $etiqueta = Etiqueta::findOrFail($id);
         
         $validated = $request->validate([
             'nombre' => 'required|max:255',
@@ -75,7 +61,6 @@ class EtiquetaApiController extends Controller
         ]);
         
         return response()->json([
-            'success' => true,
             'message' => 'Etiqueta actualizada exitosamente',
             'data' => $etiqueta
         ], 200);
@@ -88,7 +73,6 @@ class EtiquetaApiController extends Controller
         
         if (!$etiqueta) {
             return response()->json([
-                'success' => false,
                 'message' => 'Etiqueta no encontrada'
             ], 404);
         }
@@ -96,7 +80,6 @@ class EtiquetaApiController extends Controller
         $etiqueta->delete();
         
         return response()->json([
-            'success' => true,
             'message' => 'Etiqueta eliminada exitosamente'
         ], 200);
     }

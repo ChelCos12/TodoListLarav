@@ -11,12 +11,8 @@ class CategoriaApiController extends Controller
 
     public function index()
     {
-        $categorias = Categoria::all();
-        
-        return response()->json([
-            'success' => true,
-            'data' => $categorias
-        ], 200);
+        $categorias = Categoria::all()->paginate(10);
+        return response()->json($categorias);
     }
     
     public function store(Request $request)

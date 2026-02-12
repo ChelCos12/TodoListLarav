@@ -11,12 +11,8 @@ class TareaApiController extends Controller
 
     public function index()
     {
-        $tareas = Tarea::with(['categoria', 'etiquetas'])->get();
-        
-        return response()->json([
-            'success' => true,
-            'data' => $tareas
-        ], 200);
+        $tareas = Tarea::with(['categoria', 'etiquetas'])->paginate(10);
+        return response()->json($tareas);
     }
 
     public function store(Request $request)
@@ -103,29 +99,19 @@ class TareaApiController extends Controller
         $tarea->delete();
         
         return response()->json([
-            'success' => true,
             'message' => 'Tarea eliminada exitosamente'
         ], 200);
     }
     
     public function toggleCompletada($id)
     {
-        $tarea = Tarea::find($id);
-        
-        if (!$tarea) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Tarea no encontrada'
-            ], 404);
-        }
-        
+        $tarea = Tarea::findOrFail($id);
         $tarea->completada = !$tarea->completada;
         $tarea->save();
         
         $tarea->load(['categoria', 'etiquetas']);
         
         return response()->json([
-            'success' => true,
             'message' => 'Estado actualizado',
             'data' => $tarea
         ], 200);
